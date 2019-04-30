@@ -11,5 +11,6 @@ ARG BAZEL_VERSION
 RUN curl -O -L https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VERSION}/bazel-${BAZEL_VERSION}-installer-linux-x86_64.sh
 RUN bash bazel-${BAZEL_VERSION}-installer-linux-x86_64.sh
 RUN rm bazel-${BAZEL_VERSION}-installer-linux-x86_64.sh
+RUN go get github.com/bazelbuild/buildtools/buildifier
 
 USER circleci
