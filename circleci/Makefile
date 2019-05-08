@@ -10,7 +10,7 @@ BAZEL_VERSION=0.25.1
 # Use this to detect changes in the Dockerfile and tag it appropriately.
 DOCKERFILE_CRC32=$(shell crc32 Dockerfile)
 
-DOCKER_TAG=viettrungluu/tricot-build-public-circleci:$(UPSTREAM_VERSION)-$(BAZEL_VERSION)-$(DOCKERFILE_CRC32)
+DOCKER_TAG=tricot/build-public-circleci:$(UPSTREAM_VERSION)-$(BAZEL_VERSION)-$(DOCKERFILE_CRC32)
 
 all: build
 
