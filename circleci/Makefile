@@ -5,7 +5,7 @@
 UPSTREAM_VERSION=1.12.5
 
 # The version of bazel.
-BAZEL_VERSION=0.26.0
+BAZEL_VERSION=0.27.0
 
 # Use this to detect changes in the Dockerfile and tag it appropriately.
 DOCKERFILE_CRC32=$(shell crc32 Dockerfile)
