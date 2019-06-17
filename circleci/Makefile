@@ -2,7 +2,7 @@
 # Use of this source code is governed by the license in the LICENSE file.
 
 # The version of the upstream image. E.g., 1.11.5 for circleci/golang:1.11.5-node.
-UPSTREAM_VERSION=1.12.5
+UPSTREAM_VERSION=1.12.6
 
 # The version of bazel.
 BAZEL_VERSION=0.27.0
