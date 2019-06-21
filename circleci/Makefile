@@ -6,16 +6,19 @@
 # * Increase the field corresponding to the field in the updated dependency (resetting lesser fields
 #   to 0). If multiple dependencies are updated, increase the greatest field.
 # * Use standard guidelines (major.minor.patch) for other Dockerfile changes.
-DOCKER_TAG_VERSION=1.1.0
+DOCKER_TAG_VERSION=1.2.0
 
 # The version of the upstream image. E.g., 1.11.5 for circleci/golang:1.11.5-node.
 UPSTREAM_VERSION=1.12.6
 
-# The version of bazel.
+# The version of Bazel.
 BAZEL_VERSION=0.27.0
 
-# The version of cmake.
+# The version of CMake.
 CMAKE_VERSION=3.14.5
+
+# The git revision for tricot-io/tools_public.
+TRICOT_TOOLS_PUBLIC_REV=d9d143b5d3f9ed22ac381321ded2d0dc0c6a702d
 
 DOCKER_TAG=tricot/build-public-circleci:$(DOCKER_TAG_VERSION)
 

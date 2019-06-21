@@ -9,7 +9,8 @@ USER root
 
 # Packages from distribution:
 RUN apt-get update
-RUN apt-get install -y curl g++ gawk git ocl-icd-opencl-dev pkg-config python unzip zip zlib1g-dev
+RUN apt-get install -y curl g++ gawk git ocl-icd-opencl-dev pkg-config python python3 \
+        python3-requests unzip zip zlib1g-dev
 
 # Bazel:
 ARG BAZEL_VERSION
@@ -28,8 +29,15 @@ RUN mkdir ${HOME}/bin
 # TODO(vtl): Can we reasonably do this without hard-coding our home directory?
 ENV PATH="/home/circleci/bin:${PATH}"
 
+# CMake:
 ARG CMAKE_VERSION
 RUN curl -O -L https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.tar.gz
 RUN tar xfC cmake-${CMAKE_VERSION}-Linux-x86_64.tar.gz ${HOME}
 RUN rm cmake-${CMAKE_VERSION}-Linux-x86_64.tar.gz
 RUN ln -s ${HOME}/cmake-${CMAKE_VERSION}-Linux-x86_64/bin/* ${HOME}/bin
+
+# tricot-io/tools_public:
+ARG TRICOT_TOOLS_PUBLIC_REV
+RUN git -C ${HOME} clone -n https://github.com/tricot-io/tools_public.git tools_public
+RUN git -C ${HOME}/tools_public checkout ${TRICOT_TOOLS_PUBLIC_REV}
+RUN ln -s ${HOME}/tools_public/*.sh ${HOME}/tools_public/*.py ${HOME}/bin
