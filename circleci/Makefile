@@ -6,7 +6,7 @@
 # * Increase the field corresponding to the field in the updated dependency (resetting lesser fields
 #   to 0). If multiple dependencies are updated, increase the greatest field.
 # * Use standard guidelines (major.minor.patch) for other Dockerfile changes.
-DOCKER_TAG_VERSION=1.2.1
+DOCKER_TAG_VERSION=1.3.0
 
 # The version of the upstream image. E.g., 1.11.5 for circleci/golang:1.11.5-node.
 UPSTREAM_VERSION=1.12.6
@@ -31,6 +31,7 @@ build: info
 	docker build --build-arg UPSTREAM_VERSION=$(UPSTREAM_VERSION) \
 		--build-arg BAZEL_VERSION=$(BAZEL_VERSION) \
 		--build-arg CMAKE_VERSION=$(CMAKE_VERSION) \
+		--build-arg TRICOT_TOOLS_PUBLIC_REV=$(TRICOT_TOOLS_PUBLIC_REV) \
 		-t $(DOCKER_TAG) .
 
 push: build
