@@ -19,7 +19,10 @@ RUN apt-get install -y \
         python \
         python3 \
         python3-requests \
+        python-cryptography \
+        python-future \
         python-pip \
+        python-serial \
         unzip \
         zip \
         zlib1g-dev
