@@ -38,6 +38,6 @@ RUN ln -s ${HOME}/cmake-${CMAKE_VERSION}-Linux-x86_64/bin/* ${HOME}/bin
 
 # tricot-io/tools_public:
 ARG TRICOT_TOOLS_PUBLIC_REV
-RUN git -C ${HOME} clone -n https://github.com/tricot-io/tools_public.git tools_public
-RUN git -C ${HOME}/tools_public checkout ${TRICOT_TOOLS_PUBLIC_REV}
+RUN git -C ${HOME} clone -n -q https://github.com/tricot-io/tools_public.git tools_public
+RUN git -C ${HOME}/tools_public checkout -q ${TRICOT_TOOLS_PUBLIC_REV}
 RUN ln -s ${HOME}/tools_public/*.sh ${HOME}/tools_public/*.py ${HOME}/bin
