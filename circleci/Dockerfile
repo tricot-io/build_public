@@ -19,7 +19,6 @@ RUN apt-get install -y \
         python \
         python3 \
         python3-requests \
-        python-cryptography \
         python-future \
         python-pip \
         python-serial \
@@ -34,10 +33,15 @@ RUN bash bazel-${BAZEL_VERSION}-installer-linux-x86_64.sh
 RUN rm bazel-${BAZEL_VERSION}-installer-linux-x86_64.sh
 
 # Buildifier:
-# TODO(vtl): Version?
+# TODO(vtl): Version? Note that by getting this after getting Bazel, we'll at least update whenever
+# Bazel is updated, due to the way the Docker's layer cache works.
 RUN go get github.com/bazelbuild/buildtools/buildifier
 
 USER circleci
+
+# Python cryptography package:
+# Note: stretch's python-cryptography package is too old.
+RUN pip install --user cryptography>=2.1.4
 
 # Make ~/bin and add it to our path.
 RUN mkdir ${HOME}/bin
