@@ -9,8 +9,20 @@ USER root
 
 # Packages from distribution:
 RUN apt-get update
-RUN apt-get install -y curl g++ gawk git ocl-icd-opencl-dev pkg-config python python3 \
-        python3-requests unzip zip zlib1g-dev
+RUN apt-get install -y \
+        curl \
+        g++ \
+        gawk \
+        git \
+        ocl-icd-opencl-dev \
+        pkg-config \
+        python \
+        python3 \
+        python3-requests \
+        python-pip \
+        unzip \
+        zip \
+        zlib1g-dev
 
 # Bazel:
 ARG BAZEL_VERSION
