@@ -6,10 +6,10 @@
 # * Increase the field corresponding to the field in the updated dependency (resetting lesser fields
 #   to 0). If multiple dependencies are updated, increase the greatest field.
 # * Use standard guidelines (major.minor.patch) for other Dockerfile changes.
-DOCKER_TAG_VERSION=1.9.0
+DOCKER_TAG_VERSION=1.9.1
 
 # The version of the upstream image. E.g., 1.11.5 for circleci/golang:1.11.5-node.
-UPSTREAM_VERSION=1.13.1-stretch
+UPSTREAM_VERSION=1.13.3-stretch
 
 # The version of Bazel.
 BAZEL_VERSION=1.0.0
