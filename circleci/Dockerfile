@@ -32,12 +32,15 @@ RUN curl -O -L https://github.com/bazelbuild/bazel/releases/download/${BAZEL_VER
 RUN bash bazel-${BAZEL_VERSION}-installer-linux-x86_64.sh
 RUN rm bazel-${BAZEL_VERSION}-installer-linux-x86_64.sh
 
-USER circleci
-
 # Buildifier:
 # TODO(vtl): Version? Note that by getting this after getting Bazel, we'll at least update whenever
 # Bazel is updated, due to the way the Docker's layer cache works.
 RUN go get github.com/bazelbuild/buildtools/buildifier
+
+# Remove /go/pkg to avoid any caching issues.
+RUN rm -rf /go/pkg
+
+USER circleci
 
 # Python cryptography package:
 # Note: stretch's python-cryptography package is too old.
